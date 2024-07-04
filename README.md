@@ -16,7 +16,7 @@ This project aims to forecast course enrollments for collage or  University usin
 
 1. **Clone the repository:**
     ```ruby
-    git clone https://github.com/saboye/course_enrollment_prediction.git
+    git clone https://github.com/saboye/Course-Demand-Projection.git
     cd course_enrollment_prediction
     ```
 
