@@ -31,6 +31,19 @@ This project aims to forecast course enrollments for collage or  University usin
     pip install -r requirements.txt
     ```
 
+4. ### Model
+Due to large file sizes, the model files are stored externally. Please download the following files and place them in the specified directories:
+
+1. **Model File**: `best_random_forest_model.zip`
+   - [Download Link]([https://your-storage-service.com/best_random_forest_model.zip](https://github.com/saboye/Course-Demand-Projection/blob/main/best_random_forest_model.zip))
+   - Place the file in the root directory of the project and unzip it.
+
+### Usage
+1. Download the necessary files as mentioned above.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+
 4. **Run the Flask application:**
     ```ruby
     python app.py
