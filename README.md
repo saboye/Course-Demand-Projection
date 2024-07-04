@@ -1,4 +1,18 @@
-# Course Enrollment Prediction
+<div align="center">
+  <h1>Course Enrollment Prediction</h1>
+</div>
+
+<p align="center">
+    <img src="https://img.shields.io/github/contributors/saboye/Course-Demand-Projection?color=blue&logo=github&style=for-the-badge" alt="GitHub contributors" />
+    <img src="https://img.shields.io/github/forks/saboye/Course-Demand-Projection?logo=github&style=for-the-badge" alt="GitHub forks" />
+    <img src="https://img.shields.io/github/issues-raw/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub issues" />
+    <img src="https://img.shields.io/github/license/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub license" />
+    <img src="https://img.shields.io/github/last-commit/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub last commit" />
+    <img src="https://img.shields.io/badge/flask-1.1.2-blue?style=for-the-badge&logo=flask" alt="Flask" />
+    <img src="https://img.shields.io/badge/scikit--learn-0.24.2-blue?style=for-the-badge&logo=scikit-learn" alt="scikit-learn" />
+    <img src="https://img.shields.io/badge/pandas-1.2.4-blue?style=for-the-badge&logo=pandas" alt="Pandas" />
+    <img src="https://img.shields.io/badge/numpy-1.20.3-blue?style=for-the-badge&logo=numpy" alt="NumPy" />
+</p>
 
 ## Overview
 
@@ -30,6 +44,19 @@ This project aims to forecast course enrollments for collage or  University usin
     ```ruby
     pip install -r requirements.txt
     ```
+
+4. ### Model
+Due to large file sizes, the model files are stored externally. Please download the following files and place them in the specified directories:
+
+1. **Model File**: `best_random_forest_model.zip`
+   - [Download Link]([https://your-storage-service.com/best_random_forest_model.zip](https://github.com/saboye/Course-Demand-Projection/blob/main/best_random_forest_model.zip))
+   - Place the file in the root directory of the project and unzip it.
+
+### Usage
+1. Download the necessary files as mentioned above.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
 
 4. **Run the Flask application:**
     ```ruby
