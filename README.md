@@ -1,3 +1,24 @@
+<div align="center">
+  <h1>Course Enrollment Prediction</h1>
+</div>
+
+<p align="center">
+    <img src="https://img.shields.io/github/contributors/saboye/Course-Demand-Projection?color=blue&logo=github&style=for-the-badge" alt="GitHub contributors" />
+    <img src="https://img.shields.io/github/forks/saboye/Course-Demand-Projection?logo=github&style=for-the-badge" alt="GitHub forks" />
+    <img src="https://img.shields.io/github/issues-raw/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub issues" />
+    <img src="https://img.shields.io/github/license/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub license" />
+    <img src="https://img.shields.io/github/last-commit/saboye/Course-Demand-Projection?style=for-the-badge" alt="GitHub last commit" />
+    <img src="https://img.shields.io/badge/flask-1.1.2-blue?style=for-the-badge&logo=flask" alt="Flask" />
+    <img src="https://img.shields.io/badge/scikit--learn-0.24.2-blue?style=for-the-badge&logo=scikit-learn" alt="scikit-learn" />
+    <img src="https://img.shields.io/badge/pandas-1.2.4-blue?style=for-the-badge&logo=pandas" alt="Pandas" />
+    <img src="https://img.shields.io/badge/numpy-1.20.3-blue?style=for-the-badge&logo=numpy" alt="NumPy" />
+</p>
+
+<p align="center">
+  A machine learning project to forecast course enrollments using historical data. Features data cleaning, exploratory data analysis, model development with RandomForestRegressor, and deployment via a Flask web application.
+</p>
+
+
 # Course Enrollment Prediction
 
 ## Overview
