@@ -14,13 +14,6 @@
     <img src="https://img.shields.io/badge/numpy-1.20.3-blue?style=for-the-badge&logo=numpy" alt="NumPy" />
 </p>
 
-<p align="center">
-  A machine learning project to forecast course enrollments using historical data. Features data cleaning, exploratory data analysis, model development with RandomForestRegressor, and deployment via a Flask web application.
-</p>
-
-
-# Course Enrollment Prediction
-
 ## Overview
 
 This project aims to forecast course enrollments for collage or  University using machine learning. The predictive model uses historical enrollment data and various features such as course code, term code, delivery method, and capacity to forecast future enrollments. This allows the university to better allocate resources and ensure that courses are adequately staffed and resourced.
