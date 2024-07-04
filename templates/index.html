@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .fa-info-circle {
+            margin-left: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            width: auto;
+            align-self: flex-start;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #prediction, #visualization {
+            flex: 1;
+            margin: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <header>
+         
+            <h1>Course Enrollment Prediction</h1>
+        </header>
+        <main class="content">
+         
+            <section id="prediction">
+          
+                <h3>Predict Enrollment for Your Course</h3>
+                <form action="/predict" method="post">
+                    <div class="form-group">
+                        <label for="course_code">Course Code:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the unique course code (e.g., CS 101).</span>
+                            </span>
+                        </label>
+                        <input type="text" id="course_code" name="course_code" required title="Enter the unique course code (e.g., CS101)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="term_code">Term Code:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the term code in YYYYMM format (e.g., 202201).</span>
+                            </span>
+                        </label>
+                        <input type="number" id="term_code" name="term_code" required title="Enter the term code in YYYYMM format (e.g., 202201)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery_code">Delivery Code:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Choose the delivery method for the course.</span>
+                            </span>
+                        </label>
+                        <select id="delivery_code" name="delivery_code" required>
+                            <option value="DOLS">DOLS - On-line, synchronous instruction</option>
+                            <option value="DCAM">DCAM - On-Campus, in-person instruction</option>
+                            <option value="DHYB">DHYB - Hybrid instruction</option>
+                            <option value="DOLA">DOLA - On-line, asynchronous instruction</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cap_x">Capacity:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the maximum capacity for the course.</span>
+                            </span>
+                        </label>
+                        <input type="number" id="cap_x" name="cap_x" required title="Enter the maximum capacity for the course">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the year for the course (e.g., 2022).</span>
+                            </span>
+                        </label>
+                        <input type="number" id="year" name="year" required title="Enter the year for the course (e.g., 2022)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semester">Semester:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the semester (e.g., Fall, Winter).</span>
+                            </span>
+                        </label>
+                        <input type="text" id="semester" name="semester" required title="Enter the semester (e.g., Fall, Winter)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltiptext">Enter the category of the course (e.g., General, Major).</span>
+                            </span>
+                        </label>
+                        <input type="text" id="category" name="category" required title="Enter the category of the course (e.g., General, Major)">
+                    </div>
+
+                    <input type="submit" value="Predict Enrollment">
+                </form>
+                {% if prediction %}
+                <h2>{{ prediction }}</h2>
+                {% endif %}
+                
+                {% if error %}
+                <h2>Error: {{ error }}</h2>
+                {% endif %}
+            </section>
+            <section id="visualization">
+                {% if graph_html %}
+                <div id="graph">{{ graph_html | safe }}</div>
+                {% endif %}
+            </section>
+        </main>
+        <section id="about">
+            <h2>About the Model</h2>
+            <p>This predictive model uses historical enrollment data and various features such as course code, term code, delivery method, and capacity to forecast future enrollments. This allows the institution to better allocate resources and ensure that courses are adequately staffed and resourced.</p>
+        </section>
+        <section id="contact">
+      
+           
+        </section>
+        <footer>
+            <p>&copy; 2024 SAMUEL ABOYE. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
